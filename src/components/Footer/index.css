@@ -1,0 +1,15 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icons {
+  display: flex;
+  flex-direction: row;
+}
+.icon {
+  margin: 15px;
+}
+.end {
+  color: #3d3c3c;
+}
