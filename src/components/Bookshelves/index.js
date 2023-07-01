@@ -107,9 +107,9 @@ class Bookshelves extends Component {
     <div className="failure-container">
       <img
         src="https://res.cloudinary.com/dhhsqixfi/image/upload/v1687764174/Group_7522_c2oelq.png"
-        alt="failure-img"
+        alt="failure view"
       />
-      <p>Something went wrong, Please try again.</p>
+      <p>Something went wrong. Please try again</p>
       <button type="button" onClick={this.getBooks}>
         Try Again
       </button>
@@ -123,20 +123,20 @@ class Bookshelves extends Component {
   )
 
   renderSuccessView = () => {
-    const {booksList} = this.state
+    const {booksList, searchText} = this.state
     return booksList.length === 0 ? (
       <div>
         <img
           src="https://res.cloudinary.com/dhhsqixfi/image/upload/v1687764036/Asset_1_1_ynfvbi.png"
-          alt="no-matches"
+          alt="no books"
         />
-        <p>Your search for dsadsdsad did not find any matches.</p>
+        <p>Your search for {searchText} did not find any matches.</p>
       </div>
     ) : (
       <div className="footer-books">
         <ul className="books-list">
           {booksList.map(eachBook => (
-            <li key={eachBook.id} className="book-details">
+            <li testid="bookItem" key={eachBook.id} className="book-details">
               <Link to={`/books/${eachBook.id}`}>
                 <img
                   src={eachBook.coverPic}
@@ -220,9 +220,13 @@ class Bookshelves extends Component {
                     onKeyDown={this.clickEnter}
                     onChange={this.changeSearchInput}
                   />
-                  <div className="search-icon">
+                  <button
+                    type="button"
+                    testid="searchButton"
+                    className="search-icon"
+                  >
                     <BsSearch onClick={this.getData} />
-                  </div>
+                  </button>
                 </div>
               </div>
               {this.renderView()}

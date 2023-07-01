@@ -21,7 +21,7 @@ const Header = props => {
         <Link to="/">
           <img
             src="https://res.cloudinary.com/dhhsqixfi/image/upload/v1687498487/Group_7732_1_jbneod.png"
-            alt="website-logo"
+            alt="website logo"
             className="lg-logo"
           />
         </Link>
@@ -50,11 +50,13 @@ const Header = props => {
         </ul>
       </nav>
       <nav className="nav-sm">
-        <img
-          src="https://res.cloudinary.com/dhhsqixfi/image/upload/v1687498487/Group_7732_1_jbneod.png"
-          alt="website-logo"
-          className="sm-logo"
-        />
+        <Link to="/">
+          <img
+            src="https://res.cloudinary.com/dhhsqixfi/image/upload/v1687498487/Group_7732_1_jbneod.png"
+            alt="website logo"
+            className="sm-logo"
+          />
+        </Link>
         <GiHamburgerMenu />
       </nav>
     </>

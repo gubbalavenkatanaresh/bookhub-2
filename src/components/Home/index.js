@@ -77,18 +77,19 @@ class Home extends Component {
     const {booksList} = this.state
     const settings = {
       dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 4,
       slidesToScroll: 1,
     }
-    console.log(booksList)
     return (
-      <div>
-        <ul className="home-books-list">
-          <Slider {...settings} className="slider">
-            {booksList.map(eachBook => (
-              <li className="home-book-details" key={eachBook.id}>
+      <ul className="slider-container">
+        <Slider {...settings}>
+          {booksList.map(eachBook => (
+            <li
+              testid="bookItem"
+              className="home-book-details"
+              key={eachBook.id}
+            >
+              <Link to={`/books/${eachBook.id}`}>
                 <img
                   src={eachBook.coverPic}
                   alt={eachBook.title}
@@ -96,11 +97,11 @@ class Home extends Component {
                 />
                 <h1 className="home-book-title">{eachBook.title}</h1>
                 <p className="book-author-name">{eachBook.authorName}</p>
-              </li>
-            ))}
-          </Slider>
-        </ul>
-      </div>
+              </Link>
+            </li>
+          ))}
+        </Slider>
+      </ul>
     )
   }
 
