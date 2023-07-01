@@ -110,7 +110,7 @@ class Bookshelves extends Component {
         alt="failure view"
       />
       <p>Something went wrong. Please try again</p>
-      <button type="button" onClick={this.getBooks}>
+      <button type="button" onClick={this.getData}>
         Try Again
       </button>
     </div>
@@ -140,22 +140,22 @@ class Bookshelves extends Component {
               <Link to={`/books/${eachBook.id}`}>
                 <img
                   src={eachBook.coverPic}
-                  alt="cover-pic"
+                  alt={eachBook.title}
                   className="book-image"
                 />
+                <div className="details-container">
+                  <h1 className="title">{eachBook.title}</h1>
+                  <p className="details">{eachBook.authorName}</p>
+                  <p className="details">
+                    Avg Rating
+                    <BsFillStarFill className="star-icon" />
+                    {eachBook.rating}
+                  </p>
+                  <p className="details">
+                    Status: <span className="span">{eachBook.readStatus}</span>
+                  </p>
+                </div>
               </Link>
-              <div className="details-container">
-                <h1 className="title">{eachBook.title}</h1>
-                <p className="details">{eachBook.authorName}</p>
-                <p className="details">
-                  Avg Rating
-                  <BsFillStarFill className="star-icon" />
-                  {eachBook.rating}
-                </p>
-                <p className="details">
-                  Status: <span className="span">{eachBook.readStatus}</span>
-                </p>
-              </div>
             </li>
           ))}
         </ul>
@@ -196,12 +196,14 @@ class Bookshelves extends Component {
                   this.changeLabel(label)
                 }
                 return (
-                  <li
-                    key={id}
-                    onClick={clickButton}
-                    className={activeClassName}
-                  >
-                    {label}
+                  <li key={id}>
+                    <button
+                      type="button"
+                      onClick={clickButton}
+                      className={activeClassName}
+                    >
+                      {label}
+                    </button>
                   </li>
                 )
               })}
@@ -210,7 +212,7 @@ class Bookshelves extends Component {
           <div className="main-bar">
             <div>
               <div className="search-head">
-                <p>{activeLabel} Books</p>
+                <h1>{activeLabel} Books</h1>
                 <div className="search-container">
                   <input
                     type="search"

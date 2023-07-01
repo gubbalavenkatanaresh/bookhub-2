@@ -66,7 +66,7 @@ class BookDetails extends Component {
         alt="failure view"
       />
       <p>Something went wrong, Please try again.</p>
-      <button type="button" onClick={this.getBooks}>
+      <button type="button" onClick={this.getBookDetails}>
         Try Again
       </button>
     </div>
