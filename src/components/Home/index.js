@@ -76,29 +76,22 @@ class Home extends Component {
   renderSuccessView = () => {
     const {booksList} = this.state
     const settings = {
-      dots: true,
+      dots: false,
+      infinite: false,
       slidesToShow: 4,
       slidesToScroll: 1,
     }
     return (
       <ul className="slider-container">
         <Slider {...settings}>
-          {booksList.map(eachBook => (
-            <li
-              testid="bookItem"
-              className="home-book-details"
-              key={eachBook.id}
-            >
-              <Link to={`/books/${eachBook.id}`}>
-                <img
-                  src={eachBook.coverPic}
-                  alt={eachBook.title}
-                  className="home-cover-pic"
-                />
-                <h1 className="home-book-title">{eachBook.title}</h1>
-                <p className="book-author-name">{eachBook.authorName}</p>
-              </Link>
-            </li>
+          {booksList.map(book => (
+            <Link to={`/books/${book.id}`}>
+              <li testid="bookItem" key={book.id}>
+                <img src={book.coverPic} alt={book.title} />
+                <h1>{book.title}</h1>
+                <p>{book.authorName}</p>
+              </li>
+            </Link>
           ))}
         </Slider>
       </ul>

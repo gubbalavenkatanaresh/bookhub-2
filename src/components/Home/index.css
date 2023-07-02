@@ -55,7 +55,7 @@
   align-items: center;
 }
 .home-cover-pic {
-  width: 450px;
+  width: 550px;
   height: 224px;
   background-size: cover;
 }
@@ -65,6 +65,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 30px;
 }
 .home-book-title {
   font-weight: 600;
@@ -92,4 +93,5 @@
   flex-direction: row;
   height: 300px;
   width: 1200px;
+  margin-right: 10px;
 }

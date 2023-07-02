@@ -100,7 +100,13 @@ class Bookshelves extends Component {
   clickEnter = event => {
     if (event.key === 'Enter') {
       this.getData()
+      this.setState({searchText: ''})
     }
+  }
+
+  clickSearchIcon = () => {
+    this.getData()
+    this.setState({searchText: ''})
   }
 
   renderFailureView = () => (
@@ -199,6 +205,7 @@ class Bookshelves extends Component {
                   <li key={id}>
                     <button
                       type="button"
+                      testid="label"
                       onClick={clickButton}
                       className={activeClassName}
                     >
@@ -227,7 +234,7 @@ class Bookshelves extends Component {
                     testid="searchButton"
                     className="search-icon"
                   >
-                    <BsSearch onClick={this.getData} />
+                    <BsSearch onClick={this.clickSearchIcon} />
                   </button>
                 </div>
               </div>
